@@ -25,50 +25,13 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-project
-    : requirements
-      <include>$(slib_root)/include
-      <include>$(slib_root)/include/core
-      <include>$(slib_root)/third_party
-      <include>$(slib_root)/include/cgi # obsolete
-      <include>$(slib_root)/include/mysql # obsolete
-      <library-path>$(prj_root)/lib
-      <threading>multi
-      <link>shared
-      <runtime-link>shared
-      <optimization>space
+import os ;
+local slib_root = [ os.environ slib_root ] ;
+path-constant slib_root : $(slib_root) ;
+path-constant prj_root : . ;
+project csujy
+    : build-dir bin
+    : default-build release
     ;
-src_list = [ glob-tree *.h *.hpp *.c *.cpp *.cxx : .svn os_*.c ] ;
-path-constant slib_src_path : $(slib_root)/src ;
-slib_src_list = cgi/SCGIApp.cpp cgi/SCGIIn.cpp cgi/SCGIOut.cpp
-                cgi/SCookie.cpp cgi/SGet.cpp cgi/SPost.cpp
-                algorithm/md5.cpp core/mail.cpp mysql/SMySQL.cpp
-                ;
-for local l in $(slib_src_list)
-{
-    src_list += $(slib_src_path)/$(l) ;
-}
-src_list += [ glob $(slib_root)/third_party/libfcgi/*.* : .svn os_*.c ] ;
-# if NT
-# {
-    using msvc ;
-    src_list += $(slib_root)/third_party/libfcgi/os_win32.c ;
-# }
-# else
-# {
-#     using gcc ;
-#     src_list += $(slib_root)/third_party/libfcgi/os_unix.c ;
-# }
-
-exe index : $(src_list) :
-    <variant>debug:<define>_DEBUG
-    <toolset>msvc:<cflags>/GA
-    ;
-if NT
-{
-    install dist : index : <location>../htdocs/bin ;
-}
-else
-{
-    install dist : index : <location>../dist/bin/unix ;
-}
+use-project src : src ;
+alias main : src ;
