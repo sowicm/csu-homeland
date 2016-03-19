@@ -1,0 +1,81 @@
+
+<div class="guestbook">
+    <p>留言板:</p>
+    <div class="say_txt">
+        <textarea cols="10" rows="32"></textarea>
+        <div class="er"><span class="ninput">0</span>/140</div>
+    </div>
+    <button id="say_submit">发布</button>
+    <div id="contents">
+    </div>
+</div>
+<script type="text/javascript">
+    $('#s').holder();
+    $('#s')[0].onkeyup = function(event){
+        if (event.keyCode == 13)
+            s_submit();
+    };
+    $('#search_submit').click(function(){ s_submit(); });
+</script>
+<style type="text/css">
+        /*
+        #topbar *{
+            float: left;
+        }
+        #topbar li{
+            list-style-type: none;
+            height: 30px;
+        }
+        #topbar a{
+            display: block;
+            text-decoration: none;
+            height: 30px;
+            line-height: 30px;
+            padding: 0 15px;
+            color: #fff;
+            font-weight: bold;
+        }
+        #topbar a:hover{
+            background-color: #3777BC;
+        }
+        .logout{
+            position: absolute;
+            right: 20px;
+        }
+        */
+
+    .guestbook{
+        width: 450px;
+        margin: 30px 0 0;
+    }
+    .guestbook p{
+        margin:0 0 10px;
+        color: #373737;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #say_submit{
+        float:right;
+        width: 100px;
+        height: 30px;
+    }
+    .say_txt{
+        position: relative;
+    }
+    .say_txt .er{
+        position: absolute;
+        right: 30px;
+        bottom: 10px;
+        font: 18px/24px Georgia,Tahoma,Arial;
+        color: #9c9c9c;
+        text-align: right;
+    }
+    .say_txt textarea{
+        padding: 10px;
+        width: 430px;
+        height: 100px;
+    }
+    #contents{
+        margin-top: 50px;
+    }
+</style>

@@ -1,0 +1,14 @@
+#wrapper{
+    position: relative;
+    margin: 50px auto 10px;
+    background-color:white;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);
+    width: 90%;
+    min-width: 900px;
+    min-height: 500px;
+}
+#main{
+     margin:30px 0 0 380px;
+ }

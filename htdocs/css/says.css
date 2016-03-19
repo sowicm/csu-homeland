@@ -1,0 +1,170 @@
+﻿.says li{
+    position: relative;
+    list-style-type: none;
+    word-wrap: break-word;
+    overflow:hidden;
+    padding: 10px 0 10px 70px;
+}
+.says .sl{
+    min-height: 55px;
+}
+.says a{
+    text-decoration: none;
+}
+.says .avatar{
+    position:absolute;
+    left:0;
+    top:10px;
+}
+.says .avatar a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.7);
+    border-radius:5px;
+}
+.says .avatar a img{
+    width: 50px;
+    height: 50px;
+}
+.saybox{
+    position: relative;
+    display: block; /* for 360 */
+    border-radius: 5px;
+    border: 1px solid #888;
+    background: #fff;
+}
+.saybox .s_1{
+    position: absolute;
+    left: -14px;
+    top: 15px;
+    width:0;
+    border: 7px solid #2f3c4f;
+    border-top: 7px dashed transparent;
+    border-left: 7px dashed transparent;
+    border-bottom: 7px dashed transparent;
+}
+.saybox .s_2{
+    position: absolute;
+    left: -6px;
+    bottom: -7px;
+    width: 0;
+    border: 7px solid #fff;
+    border-top: 7px dashed transparent;
+    border-left: 7px dashed transparent;
+    border-bottom: 7px dashed transparent;
+}
+.saybox .m{
+    font-size: 14px;
+    padding: 9px 15px 0;
+    line-height: 25px;
+    margin: 0 0 8px;
+}
+.saybox a:hover{
+    text-decoration: underline;
+}
+.saybox .nickname{
+    margin-right: 8px;
+    color: #079aff;
+}
+.saybox .content{
+    color: #373737;
+}
+.saybox .f{
+    padding: 3px 15px 6px;
+    height: 20px;
+    line-height: 1.5;
+    font-size: 12px;
+    color: #373737;
+}
+.saybox .info{
+    float: left;
+    color: #558;
+}
+.saybox .op{
+    float: right;
+}
+.saybox .op a{
+    color: #48f;
+}
+.saybox .reply{
+    padding: 0 15px 15px;
+}
+.saybox .reply .avatar{
+    top:15px;
+}
+.saybox .reply .avatar a, .saybox .reply .avatar a img{
+    width: 35px;
+    height: 35px;
+}
+.saybox .reply li{
+    border-top: 1px dashed #888;
+    padding: 15px 0 10px 45px;
+}
+.saybox .reply .m{
+    position: relative;
+    top: -4px;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+.saybox .reply .f{
+    padding: 0;
+}
+.saybox .reply .op{
+    display: none;
+}
+.saybox .reply_default{
+    width: 100%;
+    height: 15px;
+    padding: 4px;
+    font-size: 12px;
+    cursor: text;
+    color: #666;
+    background: #fff;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+}
+.saybox .reply_real{
+    display: none;
+}
+.saybox .tw{
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+.saybox .er{
+    position: absolute;
+    right: 12px;
+    bottom: 8px;
+    font: 14px/20px Georgia,Tahoma,Arial;
+    color: #9c9c9c;
+    text-align: right;
+}
+.saybox .reply_real textarea{
+    width: 100%;
+    height: 60px;
+}
+.saybox .reply_real button{
+    float: right;
+}
+.says .pagebar{
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+}
+.says .pagebar input{
+    width: 35px;
+}
+.says .pagebar{
+    color: #373737;
+}
+.says .pagenumber, .says .prevpage, .says .nextpage{
+    cursor: pointer;
+    color: #48f;
+}
+.says .pagebar span{
+    margin: 0 2px;
+}

@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    $(function(){
+        createWnd(640,240,'设置头像','<div style="float:left;width:290px;"><p><label><input type="radio" name="po" />选择教务系统照片</label></p><p><img style="width:80px;height:100px" alt="" src="/photo/{$did}" /></p><p><button id="bp">确定</button></p></div><div><p><label><input type="radio" name="po" />上传新头像</label></p><form enctype="multipart/form-data" method="post" action="/uploadphoto" style="margin-left:30px"><p><input type="file" name="photo" /></p><p style="color:red;font-size:12px;">(目前仅支持2M以下的jpg格式图片)</p><p><button>确定</button></p></form></div>');
+        $('#bp').click(function(){
+            $.get('/choosephoto').success(function(){
+                location.href = "/home";
+            });
+        });
+    });
+</script>

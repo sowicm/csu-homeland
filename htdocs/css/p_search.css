@@ -1,0 +1,65 @@
+﻿#wrapper{
+    position: relative;
+    margin: 50px auto 10px;
+    background-color:white;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);
+    width: 90%;
+    min-width: 900px;
+    min-height: 500px;
+}
+#main{
+    margin:30px 0 0 380px;
+}
+#s{
+    padding: 10px;
+    font-size: 16px;
+    width: 360px;
+    height: 22px;
+}
+#search_submit{
+    margin-left: 20px;
+    font-size: 16px;
+    height: 42px;
+}
+.results{
+    width: 450px;
+    margin: 30px 0 0;
+}
+.results li{
+    border-top: 1px solid rgb(221, 221, 221);
+    list-style-type: none;
+}
+.results a{
+    display: block;
+    width: 450px;
+    height: 150px;
+    text-decoration: none;
+    padding: 0.8em 0;
+}
+.results a:hover{
+    background: #eee;
+}
+.results .avatar{
+    display: block;
+    float: left;
+    margin-right: 20px;
+}
+.results .avatar img{
+    width: 100px;
+    height: 150px;
+}
+.results .info{
+    float: left;
+}
+.results .name{
+    font-size: 18px;
+    font-family: "Microsoft Yahei",Tahoma;
+    color: rgb(0, 94, 172)
+}
+.results .academy, .results .grade, .results .pro{
+    font-size: 14px;
+    display: block;
+    color: #333;
+}

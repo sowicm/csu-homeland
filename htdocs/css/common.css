@@ -1,0 +1,223 @@
+﻿*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    background-color: #e8e8e8;
+}
+li{
+    list-style-type: none;
+}
+#topbar{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width:100%;
+    height: 30px;
+    /*background: #005eac;*/
+}
+#topbar .logo{
+    position: absolute;
+}
+#topbar .logo .m{
+    cursor: default;
+    color: #eee;
+    width: 300px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-top: 3px solid #061638;
+    border-bottom: 3px solid #061638;
+    background: #2e4d84;
+    font-family: "Microsoft Yahei",Tahoma;
+}
+#topbar .logo .s_1{
+     position: absolute;
+     z-index: 5;
+     left: 300px;
+     top: 0;
+     width:0;
+     border: 18px solid #061638;
+     border-top: 18px dashed transparent;
+     border-right: 18px dashed transparent;
+     border-bottom: 18px dashed transparent;
+ }
+#topbar .logo .s_2{
+    position: absolute;
+    z-index: 5;
+    left: 300px;
+    top: 3px;
+    width: 0;
+    border: 15px solid #2e4d84;
+    border-top: 15px dashed transparent;
+    border-right: 15px dashed transparent;
+    border-bottom: 15px dashed transparent;
+}
+#topbar .bg{
+    width: 100%;
+    height: 100%;
+    background: #2c2c2c;
+    border-top: 3px solid #061638;
+    border-bottom: 3px solid #061638;
+}
+#topbar .l{
+    position: absolute;
+    left: 360px;
+}
+#topbar .r{
+    position: absolute;
+    right: 3px;
+}
+#topbar li{
+    float: left;
+    margin: 2px 3px;
+    list-style-type: none;
+}
+#topbar a{
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    height: 26px;
+    width: 100px;
+    line-height: 26px;
+    padding: 0 15px;
+    color: #fff;
+    font-weight: bold;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+#topbar a:hover{
+    color: #fff;
+    background-color: #121212;
+}
+input, button, textarea, #enlist_bar, #comment_bar{
+    font-family: "Microsoft Yahei",Tahoma;
+}
+input, textarea{
+    position: relative;
+    color: #666;
+    background: #fff;
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+}
+.current{
+    border-color: #56bdf3;
+    box-shadow:inset 0 1px 3px rgba(0,0,0,.2);
+}
+.i{
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+.holder{
+    position: absolute;
+    z-index: 2;
+    cursor: text;
+    word-wrap: break-word;
+}
+button{
+    cursor: pointer;
+    color: #fff;
+    background: #005eac;
+    border:1px solid #4aa7da;
+    border-radius: 5px;
+}
+#enlist_bar, #enlist, #comment_bar, #comment{
+    position:fixed;
+    z-index: 100;
+    left:0;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid;
+    border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);
+    background: #2e2e2e;
+    color: #fff;
+}
+#enlist, #enlist_bar{
+    top:60px;
+    height: 385px;
+}
+#comment, #comment_bar{
+    top:450px;
+    height:150px;
+}
+#enlist_bar{
+    line-height:192px;
+}
+#comment_bar{
+    line-height:75px;
+}
+#enlist_bar, #comment_bar{
+    cursor: pointer;
+    width: 30px;
+    text-align: center;
+}
+#enlist, #comment{
+    width: 360px;
+    display: none;
+}
+#enlist p, #comment p{
+    font-size: 12px;
+    margin: 8px 15px 2px 8px ;
+}
+#enlist input, #comment input, #enlist textarea, #comment textarea{
+    margin: 3px 10px;
+    padding: 3px;
+    font-size: 14px;
+}
+.email, #enlist_id, #enlist_phone{
+    width: 240px;
+    height: 18px;
+    ime-mode:Disabled;
+}
+#enlist_txt{
+    width: 330px;
+    height: 120px;
+}
+#enlist_submit, #comment_submit{
+    margin-left: 10px;
+    width: 200px;
+    height: 28px;
+}
+#comment_txt{
+    width: 330px;
+    height: 40px;
+}
+.closebtn{
+    display:block;
+    position:absolute;
+    top:2px;
+    right:2px;
+    width:15px;
+    height:15px;
+    line-height:15px;
+    font-size:18px;
+    font-weight: bold;
+    border-radius: 16px;
+    color:#fff;
+    cursor:pointer;
+    border:2px solid #fff;
+}
+.wnd{
+    position:absolute;
+    z-index:100;
+    border:1px solid #cfcfcf;
+    border-radius:5px;
+    color:#333;
+    background:#fafafa;
+}
+#footer{
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#s{
+    padding: 10px;
+    font-size: 16px;
+    width: 360px;
+    height: 22px;
+}
+#search_submit{
+    font-size: 16px;
+    height: 42px;
+}
