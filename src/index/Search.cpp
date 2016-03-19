@@ -6,6 +6,7 @@
 #include "SCGIOut.h"
 #include "SCookie.h"
 #include "SMySQL.h"
+#include "debuglog.h"
 #include "sqlMutex.h"
 #include "SVars.h"
 #include "SGet.h"

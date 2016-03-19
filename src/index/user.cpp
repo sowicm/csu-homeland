@@ -5,6 +5,7 @@
 #include "SCookie.h"
 #include "SCGIEnv.h"
 #include "SMySQL.h"
+#include "debuglog.h"
 #include "sqlMutex.h"
 #include "SCGIApp.h"        // errorlog
 using std::string;

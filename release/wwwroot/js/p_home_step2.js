@@ -1,0 +1,1 @@
+$(function(){$('#user_pwd').placeholder('请输入新密码');$('#user_pwdcfm').placeholder('请再次输入新密码');$('#newpwd_submit').click(function(){if($('#user_pwd').val().length<8)alert('密码不能小于8位！');else if($('#user_pwdcfm').val()!=$('#user_pwd').val())alert('两次密码不一样!');else $.post('/home?createpass',{pwd:$('#user_pwd').val()},function(){location.href=location.href})})});

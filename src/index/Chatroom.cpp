@@ -1,5 +1,4 @@
 ﻿
-#include "Chatroom.h"
 #include <time.h>                   // clock
 #include <string>
 #include "SCGIApp.h"
@@ -13,13 +12,8 @@
 #include "user.h"
 using std::string;
 
-void Chatroom::attach(SCGIApp* app) const
-{
-    app->insert("/chatroom", proc);
-    app->insert("/chatroom/comet", procComet);
-}
-
-void Chatroom::proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
+namespace {
+void proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
 {
     SVars   vars;
     SCookie cookie(env, out);
@@ -133,7 +127,7 @@ void Chatroom::proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
     }
 }
 
-void Chatroom::procComet(const char*, SCGIEnv& env, SCGIIn&, SCGIOut& out)
+void procComet(const char*, SCGIEnv& env, SCGIIn&, SCGIOut& out)
 {
     SCookie cookie(env, out);
     User u(cookie, env);
@@ -213,4 +207,11 @@ void Chatroom::procComet(const char*, SCGIEnv& env, SCGIIn&, SCGIOut& out)
     //    sleep(1);
 #endif
     //}
+}
+}
+
+void Chatroom(SCGIApp* app)
+{
+    app->insert("/chatroom", proc);
+    app->insert("/chatroom/comet", procComet);
 }

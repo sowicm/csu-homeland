@@ -1,0 +1,1 @@
+function s_submit(){location.href='/search?n='+$('#s').val()};$(function(){$('#s').placeholder('请输入你要查找的姓名');$('#s')[0].onkeyup=function(event){if(event.keyCode==13)s_submit()};$('#search_submit').click(function(){s_submit()})});

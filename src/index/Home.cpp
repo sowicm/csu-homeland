@@ -1,5 +1,4 @@
 ﻿
-#include "Home.h"
 #include "algorithm/md5.h"
 #include "SCGIApp.h"
 #include "SCGIEnv.h"
@@ -7,16 +6,13 @@
 #include "SCookie.h"
 #include "SPost.h"
 #include "SMySQL.h"
+#include "debuglog.h"
 #include "sqlMutex.h"
 #include "SVars.h"
 #include "user.h"
 
-void Home::attach(SCGIApp* app) const
-{
-    app->insert("/home", proc);
-}
-
-void Home::proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
+namespace {
+void proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
 {
     if (*s != '?')
     {
@@ -146,4 +142,10 @@ void Home::proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
             out.puts("\r\n\r\n");
         }
     }
+}
+}
+
+void Home(SCGIApp* app)
+{
+    app->insert("/home", proc);
 }

@@ -8,7 +8,7 @@
 #endif
 #include <mutex>
 #include <thread>
-#include "fcgiapp.h"
+#include "libfcgi/fcgiapp.h"
 #include "algorithm/md5.h"
 #include "dbconfig.h"
 #include "SCGIApp.h"
@@ -16,29 +16,32 @@
 #include "SCGIOut.h"
 #include "SCGIEnv.h"
 #include "SMySQL.h"
-#include "Chatroom.h"
-#include "Default.h"
-#include "Feedback.h"
-#include "Guestbook.h"
-#include "Home.h"
-#include "Login.h"
-#include "News.h"
-#include "Others.h"
-#include "Photo.h"
-#include "Profile.h"
-#include "Rating.h"
-#include "Search.h"
-#include "TestBrowser.h"
-#include "UPage.h"
-#include "Verify.h"
+#include "debuglog.h"
 #if defined(_DEBUG) && defined(_WIN32)
 #include "Windows.h"
 #endif
+#include "globals.h"
 using std::mutex;
 using std::thread;
 #pragma comment(lib, "user32.lib")
 #pragma comment(lib, "ws2_32.lib")
 #pragma comment(lib, "libmysql.lib")
+
+CGI_INCLUDE(Guestbook);
+CGI_INCLUDE(Home);
+CGI_INCLUDE(Default);
+CGI_INCLUDE(Photo);
+CGI_INCLUDE(UPage);
+CGI_INCLUDE(Search);
+CGI_INCLUDE(Profile);
+CGI_INCLUDE(Rating);
+CGI_INCLUDE(Chatroom);
+CGI_INCLUDE(Login);
+CGI_INCLUDE(News);
+CGI_INCLUDE(Feedback);
+CGI_INCLUDE(Verify);
+CGI_INCLUDE(TestBrowser);
+CGI_INCLUDE(Others);
 
 #define THREAD_COUNT 1 //20
 
@@ -144,21 +147,22 @@ int main()
     debuglog("start...\n");
     initRandSeed();
 
-    cgi.set(new Default);
-    cgi.set(new Home);
-    cgi.set(new Guestbook);
-    cgi.set(new Photo);
-    cgi.set(new UPage);
-    cgi.set(new Search);
-    cgi.set(new Profile);
-    cgi.set(new Rating);
-    cgi.set(new Chatroom);
-    cgi.set(new Login);
-    cgi.set(new News);
-    cgi.set(new Feedback);
-    cgi.set(new Verify);
-    cgi.set(new TestBrowser);
-    cgi.set(new Others);
+    //SCGIApp cgi;
+    cgi.set(Default);
+    cgi.set(Home);
+    cgi.set(Guestbook);
+    cgi.set(Photo);
+    cgi.set(UPage);
+    cgi.set(Search);
+    cgi.set(Profile);
+    cgi.set(Rating);
+    cgi.set(Chatroom);
+    cgi.set(Login);
+    cgi.set(News);
+    cgi.set(Feedback);
+    cgi.set(Verify);
+    cgi.set(TestBrowser);
+    cgi.set(Others);
 
     if (!sql.connect(dbserver, dbuser, dbpwd, dbname, 3306))
     {
@@ -181,5 +185,5 @@ int main()
     doit();
 
     onExit();
-	return 0;
+    return 0;
 }

@@ -5,11 +5,12 @@ upload:
 	htdocscompress htdocs htdocs_upload
 
 index.fcgi:
-	-rm -f htdocs\bin\index.exe
-	-rm -f htdocs\bin\index.fcgi
-	#b2 >makecgi_output.txt 2>&1
-	b2
-	mv htdocs/bin/index.exe index.fcgi
+	#-rm -f htdocs\bin\index.exe
+	#-rm -f htdocs\bin\index.fcgi
+	##b2 >makecgi_output.txt 2>&1
+	#b2
+	#mv htdocs/bin/index.exe index.fcgi
+	scons
 
 clean:
 	rm -rf bin

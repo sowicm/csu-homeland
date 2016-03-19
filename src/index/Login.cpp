@@ -7,6 +7,7 @@
 #include "SCGIApp.h"
 #include "SPost.h"
 #include "SMySQL.h"
+#include "debuglog.h"
 #include "sqlMutex.h"
 #include "SCookie.h"
 #include "user.h"

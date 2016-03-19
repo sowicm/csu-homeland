@@ -1,5 +1,4 @@
 ﻿
-#include "Guestbook.h"
 #include "SCGIApp.h"
 #include "SCGIEnv.h"
 #include "SCGIOut.h"
@@ -9,12 +8,8 @@
 #include "sqlMutex.h"
 #include "user.h"
 
-void Guestbook::attach(SCGIApp* app) const
-{
-    app->insert("/guestbook", proc);
-}
-
-void Guestbook::proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
+namespace {
+void proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
 {
     if (*s++ == '?')
     {
@@ -168,4 +163,10 @@ void Guestbook::proc(const char* s, SCGIEnv& env, SCGIIn& in, SCGIOut& out)
             out.puts("</ol><script type=\"text/javascript\">onRepliesLoad();</script>");
         }
     }
+}
+}
+
+void Guestbook(SCGIApp* app)
+{
+    app->insert("/guestbook", proc);
 }

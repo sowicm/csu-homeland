@@ -7,12 +7,8 @@
 #include "SCookie.h"
 #include "user.h"
 
-void Default::attach(SCGIApp* app) const
-{
-    app->insert("/", proc);
-}
-
-void Default::proc(const char*, SCGIEnv& env, SCGIIn&, SCGIOut& out)
+namespace{
+void proc(const char*, SCGIEnv& env, SCGIIn&, SCGIOut& out)
 {
     SVars   vars;
     SCookie cookie(env, out);
@@ -55,3 +51,10 @@ void Default::proc(const char*, SCGIEnv& env, SCGIIn&, SCGIOut& out)
             "</script>", cgiOut);
     */
 }
+}
+
+void Default(SCGIApp* app)
+{
+    app->insert("/", proc);
+}
+

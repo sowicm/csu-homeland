@@ -1,0 +1,1 @@
+$(function(){$('#user_email').placeholder('请输入你常用的邮箱地址');$('#email_submit').click(function(){if(!checkEmail($('#user_email').val()))alert('邮箱格式不合法!');else $.post('/sendverifymail',{email:$('#user_email').val()},function(){msgBox('Information','提交成功！请去您的邮箱检查验证邮件。')})})});
