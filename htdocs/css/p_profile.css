@@ -1,0 +1,99 @@
+#wrapper{
+    position: relative;
+    margin: 0 auto 10px;
+    /*
+    background-color:white;
+    border-radius: 8px;
+    border: 1px solid;
+    border-color: #cfcfcf #cfcfcf #b3b3b3;
+    width: 80%;
+    min-width: 900px;
+    */
+    min-height: 500px;
+}
+/*
+#main{
+    width: 500px;
+    margin: 30px auto;
+}
+*/
+.w_l{
+    margin: 50px 0 0 60px;
+    float: left;
+    width: 260px;
+}
+.w_l h3{
+    font-size: 36px;
+    color: #2673ec;
+    cursor: default;
+}
+.w_l ul{
+    margin-left: -60px;
+}
+.w_l li a{
+    text-indent: 60px;
+    display: block;
+    cursor: default;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-decoration: none;
+    color: #000;
+    font-size: 24px;
+    /*font-family: "楷体","楷体_GB2312","KaiTi Regular","Kaiti_GB2312 Regular";*/
+}
+.w_l li a:hover{
+    background: #cdcdcd;
+}
+.w_l .c a{
+    color: #fff;
+    background: #2673ec;
+}
+.w_l .c a:hover{
+    background: #2673ec;
+}
+
+.w_r{
+    padding-top: 50px;
+    float: left;
+    background: #fff;
+}
+.w_r .m{
+    margin: 0 0 0 30px;
+}
+.w_r button{
+    width: 200px;
+    height: 36px;
+    margin: 10px;
+}
+.pane{
+    position: fixed;
+    z-index: 200;
+    top: 20%;
+    height: 60%;
+    width: 100%;
+    background: #232323;
+    color:#fff;
+}
+.pane_main{
+    width: 400px;
+    margin: 120px auto 0;
+}
+.pane_main li{
+    margin: 10px 0;
+    font-size: 18px;
+}
+.pane_w{
+    display: inline-block;
+    width: 90px;
+}
+.pane_main input{
+    width: 300px;
+    padding: 4px;
+}
+.pane_main button{
+    margin: 5px 0 0 5px;
+    width: 80px;
+    height: 26px;
+    line-height: 26px;
+}

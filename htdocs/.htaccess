@@ -1,9 +1,9 @@
-DirectoryIndex ./bin/index.cgi
+DirectoryIndex ./bin/index.fcgi
 Options -Indexes
 <IfModule mod_rewrite.c>
 RewriteEngine on
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /bin/index.cgi [L]
+RewriteRule . /bin/index.fcgi [L]
 </IfModule>

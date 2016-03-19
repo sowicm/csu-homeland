@@ -1,10 +1,13 @@
 $(function(){
     $('#user_pwd').holder();
     $('#user_pwdcfm').holder();
+    $('#agreed').change(function(){
+        $('#newpwd_submit').attr('disabled', ($(this).attr('checked') == 'checked' ? false : true));
+    });
     $('#newpwd_submit').click(function(){
         if ($('#agreed').attr('checked') != 'checked')
         {
-
+            
         }
         else if ($('#user_pwd').val().length < 8)
             alert('密码不能小于8位！');

@@ -1,10 +1,10 @@
 ﻿#wrapper{
     position: relative;
     margin: 50px auto 0;
-    background-color:white;
+    /*background-color:white;
     border-radius: 8px;
     border: 1px solid;
-    border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);
+    border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);*/
     width: 90%;
     min-width: 900px;
     height: 480px;
@@ -32,8 +32,9 @@
     height: 250px;
 }
 #cnews{
+    background: #fff;
     margin-top: 20px;
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     border: 1px solid;
     border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);
     width: 450px;
@@ -45,6 +46,7 @@
     list-style-type: none;
 }
 #cnews a{
+    cursor: default;
     font-family: "楷体","楷体_GB2312","KaiTi Regular","Kaiti_GB2312 Regular";
     color: #3a3a3a;
     text-decoration:none;
@@ -68,14 +70,19 @@
     padding: 14px;
     ime-mode:Disabled;
 }
-#login button{
+#btnLogin{
     margin: 0 10px;
+    /*
     font-size: 20px;
     width:150px;
     height:48px;
     line-height:48px;
     letter-spacing: 20px;
     text-indent: 10px;
+    */
+    width:150px;
+    height:28px;
+    border:1px solid white;
 }
 .client p{
     margin: 5px;
@@ -100,10 +107,29 @@
     color: red;
 }
 #login #remember{
-    margin:0;
+    margin:0 2px 0;
     padding:0;
     width: auto;
     height: auto;
+}
+#logininfo{
+    margin: 10px;
+}
+#logininfo span{
+    display: inline-block;
+    margin: 0 0 0 30px;
+    color: #423842;
+    font-size: 32px;
+    height: 32px;
+    line-height: 32px;
+}
+.failed{
+    color: red;
+}
+#logininfo button{
+    margin: 10px 0;
+    width: 80px;
+    height: 28px
 }
 #notagain{
     position: absolute;

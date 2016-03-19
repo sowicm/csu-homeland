@@ -1,0 +1,36 @@
+
+project
+    : requirements
+      <include>include
+      <include>$(slib_root)/include
+      <include>$(slib_root)/include/core
+      <include>$(slib_root)/include/cgi
+      <include>$(slib_root)/include/mysql
+      <threading>multi
+      <link>shared
+      <runtime-link>shared
+      <optimization>space
+    ;
+src_list = [ glob-tree *.h *.hpp *.c *.cpp *.cxx : .svn os_*.c ] ;
+if NT
+{
+    src_list += libfcgi/os_win32.c ;
+}
+else
+{
+    src_list += libfcgi/os_unix.c ;
+}
+path-constant slib_src_path : $(slib_root)/src ;
+slib_src_list = cgi/SCGIApp.cpp cgi/SCGIIn.cpp cgi/SCGIOut.cpp
+                cgi/SCookie.cpp cgi/SGet.cpp cgi/SPost.cpp
+                algorithm/md5.cpp core/mail.cpp mysql/SMySQL.cpp
+                ;
+for local l in $(slib_src_list)
+{
+    src_list += $(slib_src_path)/$(l) ;
+}
+
+exe index : $(src_list) :
+    <variant>debug : <define>_DEBUG
+    ;
+install dist : index : <location>../htdocs/bin ;

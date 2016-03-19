@@ -1,9 +1,19 @@
 function login()
 {
+    var relogin = $('<button>确定</button>').click(function(){
+        $('#logininfo').hide();
+        $('#loginhide').show();
+    });
+    $('#loginhide').hide();
+    $('#logininfo').show().html('<img alt="" src="../images/style/loader.png"/><span>欢迎</span>');
     if ($('#user_id').val().length < 5)
-        alert('用户名错误！');
+    {
+        $('#logininfo').html('<div class="failed">用户名错误！</div>').append(relogin);
+    }
     else if ($('#user_pwd').val().length < 8)
-        alert('密码错误！');
+    {
+        $('#logininfo').html('<div class="failed">密码错误！</div>').append(relogin);
+    }
     else
     {
         var remember = ($('#remember').attr('checked') == 'checked' ? 1 : 0);
@@ -15,11 +25,15 @@ function login()
                 else if (data == "2")
                     $.getScript('../js/fun.js');
                 else
-                    msgBox('登录失败', '学号或密码错误，若您确定无误，则可能被其他人抢先登录了，请从左下角反馈。');
+                {
+                    $('#logininfo').html('<div class="failed">学号或密码错误，若您确定无误，则可能被其他人抢先登录了，请从左下角反馈。</div>').append(relogin);
+                    /*msgBox('登录失败', '学号或密码错误，若您确定无误，则可能被其他人抢先登录了，请从左下角反馈。');*/
+                }
             })
             .error(function()
             {
-                alert('服务器又抽风了，请稍后重试！');
+                $('#logininfo').html('<div class="failed">服务器未响应，请稍后重试！</div>').append(relogin);
+                /*alert('服务器又抽风了，请稍后重试！');*/
             });
     }
 };
@@ -64,6 +78,7 @@ var urlPics = [
 ];
 
 $(function(){
+    $('#logininfo').hide();
     $('#pics img').attr('src', '../images/school/' + urlPics[Math.floor(Math.random() * urlPics.length)]);
     $('#wrapper').hide();
     $('#pics').hide();
@@ -89,10 +104,10 @@ $(function(){
         $(this).children('a').css('color', '#3a3a3a');
         $(this).animate({ paddingLeft: '0px' }, 250);
     });
-    $('#cnews li a').click(function(){
-        if ($(this).attr('href') != '#')
+    $('#cnews li').click(function(){
+        if ($(this).children('a').attr('href') != '#')
         {
-            $.get($(this).attr('href')).success(function(data){
+            $.get($(this).children('a').attr('href')).success(function(data){
                 createWnd(800, 500, 'Notice', data);
             });
         }

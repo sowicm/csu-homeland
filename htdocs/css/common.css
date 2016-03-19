@@ -76,6 +76,7 @@ li{
 }
 #topbar a{
     display: block;
+    cursor:default;
     text-decoration: none;
     text-align: center;
     height: 26px;
@@ -91,6 +92,21 @@ li{
     color: #fff;
     background-color: #121212;
 }
+#topbar #acp{
+    display: none;
+    position: absolute;
+    width: 130px;
+    background: #2c2c2c;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+#topbar #acp li{
+    margin: 7px 0 0 0;
+}
+#topbar #acp a{
+    border: 0;
+}
 input, button, textarea, #enlist_bar, #comment_bar{
     font-family: "Microsoft Yahei",Tahoma;
 }
@@ -99,7 +115,7 @@ input, textarea{
     color: #666;
     background: #fff;
     border: 1px solid #cfcfcf;
-    border-radius: 3px;
+    /*border-radius: 3px;*/
 }
 .current{
     border-color: #56bdf3;
@@ -117,17 +133,20 @@ input, textarea{
     word-wrap: break-word;
 }
 button{
-    cursor: pointer;
+    /*cursor: pointer;*/
     color: #fff;
     background: #005eac;
     border:1px solid #4aa7da;
-    border-radius: 5px;
+    /*border-radius: 5px;*/
+}
+button:hover{
+    background: #005eef;
 }
 #enlist_bar, #enlist, #comment_bar, #comment{
     position:fixed;
     z-index: 100;
     left:0;
-    border-radius: 0 8px 8px 0;
+    /*border-radius: 0 8px 8px 0;*/
     border: 1px solid;
     border-color: rgb(207,207,207) rgb(207,207,207) rgb(179,179,179);
     background: #2e2e2e;
@@ -184,32 +203,54 @@ button{
     height: 40px;
 }
 .closebtn{
+    background: #c75050;
+    text-align: center;
     display:block;
+    cursor: default;
     position:absolute;
-    top:2px;
+    top:0;
     right:2px;
-    width:15px;
-    height:15px;
-    line-height:15px;
-    font-size:18px;
+    width:48px;
+    height:20px;
+    line-height:20px;
+    font-size:12px;
     font-weight: bold;
-    border-radius: 16px;
+    /*border-radius: 16px;*/
     color:#fff;
-    cursor:pointer;
-    border:2px solid #fff;
+    /*border:2px solid #fff;*/
+}
+.closebtnhover{
+    background: #e04343;
 }
 .wnd{
-    position:absolute;
-    z-index:100;
-    border:1px solid #cfcfcf;
-    border-radius:5px;
+    position: absolute;
+    z-index: 100;
+    border:1px solid #45718f;
+}
+.wnd_all{
+    border-width: 0px 6px 6px 6px;
+    border-style: solid;
+    border-color: #0d5995;
+    /*border-radius:5px;*/
     color:#333;
     background:#fafafa;
 }
+.wnd_title{
+    position: relative;
+    cursor: default;
+    text-align: center;
+    height:25px;
+    line-height:25px;
+    color:#fff;
+    background:#0d5995;
+}
+
 #footer{
     text-align: center;
     width: 100%;
     margin-bottom: 10px;
+    font-family: arial;
+    color: rgb(119,119,204);
 }
 #s{
     padding: 10px;

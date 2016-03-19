@@ -85,7 +85,7 @@ function createWnd(width, height, title, html)
     var isMouseDown = false;
     var offsetX;
     var offsetY;
-    var titlebar = $('<div style="cursor:default;padding:0 10px;height:25px;line-height:25px;color:#fff;background:#0d5995">'+title+'</div>')
+    var titlebar = $('<div class="wnd_title">'+title+'</div>')
         .mousedown(function(e){
             offsetX = e.clientX - parseInt(wnd.css('left'));
             offsetY = e.clientY - parseInt(wnd.css('top'));
@@ -103,12 +103,19 @@ function createWnd(width, height, title, html)
         .mouseout(function(){
             isMouseDown = false;
         });
-    var closebtn = $('<span class="closebtn" title="关闭">×</span>').click(function(){
+    var closebtn = $('<span class="closebtn" title="关闭">×</span>').hover(function(){
+        $(this).addClass('closebtnhover');
+    }, function(){
+        $(this).removeClass('closebtnhover');
+    }).click(function(){
         wnd.hide();
-    });
-    var client = $('<div class="client" style="position:relative;overflow:auto;width:100%;height:'+(height-25)+'px;"></div>')
+    }).css('right', '0');
+    var client = $('<div class="client" style="position:relative;overflow:auto;width:100%;height:'+(height-31)+'px;"></div>')
         .append(html);
-    wnd.append(closebtn).append(titlebar).append(client);
+    var wnd_all = $('<div class="wnd_all"></div>');
+    wnd_all.append( titlebar.append(closebtn) ).append(client);
+    //wnd.append(closebtn).append(titlebar).append(client);
+    wnd.append(wnd_all);
     wnd.css('top', ($(window).height() - parseInt(wnd.css('height'))) / 2);
     wnd.css('left', ($(window).width() - parseInt(wnd.css('width'))) / 2);
     wnd.show();
@@ -144,8 +151,8 @@ function sliderConfirm(options)
 }
 function msgBox(title, msg)
 {
-    var html = '<div style="padding:5px 10px;width:280px;height:165px;">'+msg+'</div>';
-    createWnd(300, 200, title, html);
+    var html = '<div style="text-align:center;margin:0 auto;padding:5px 10px;width:300px;">'+msg+'</div>';
+    createWnd(400, 120, title, html);
 };
 function checkEmail(str)
 {
@@ -167,6 +174,11 @@ $(function(){
     }).focusout(function(){
         $(this).removeClass('current');
     });
+    $('.closebtn').hover(function(){
+        $(this).addClass('closebtnhover');
+    }, function(){
+        $(this).removeClass('closebtnhover');
+    });
     $('.closebtn').click(function(){
         $(this).parent().hide();
     });
@@ -176,10 +188,11 @@ $(function(){
     $('#enlist_txt').holder();
     $('#comment_email').holder();
     $('#comment_txt').holder();
-    $('#enlist_bar').click(function(){
+    /* click -> hover */
+    $('#enlist_bar').hover(function(){
         $('#enlist').css('left', '-330px').show().animate({left:0}, 250);
     });
-    $('#comment_bar').click(function(){
+    $('#comment_bar').hover(function(){
         $('#comment').css('left', '-330px').show().animate({left:0}, 250);
     });
     var d = document.getElementById('enlist_phone');
@@ -221,6 +234,10 @@ $(function(){
         {
             alert('手机号不合法！');
         }
+        else if ($('#enlist_txt').val() == '')
+        {
+            alert('请说点什么吧！');
+        }
         else
         {
             $.post('/enlist_submit', {email:$('#enlist_email').val(),stuid:$('#enlist_id').val(),phone:$('#enlist_phone').val(),txt:$('#enlist_txt').val()}, function()
@@ -235,6 +252,10 @@ $(function(){
         {
             alert('邮箱格式不合法!');
         }
+        else if ($('#comment_txt').val() == '')
+        {
+            alert('请说点什么吧！');
+        }
         else
         {
             $.post('/suggestion_submit', {email:$('#comment_email').val(),txt:$('#comment_txt').val()}, function()
@@ -243,5 +264,10 @@ $(function(){
                 msgBox('Information', '提交成功！')
             });
         }
+    });
+    $('#account').hover(function(){
+        $('#acp').show();
+    }, function(){
+        $('#acp').hide();
     });
 });

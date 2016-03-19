@@ -15,6 +15,11 @@ function loadSays(p)
 {
     $('#contents').load('/guestbook?p=' + p);
 }
+$(window).resize(function(){
+    $('.say_txt textarea').css('width', '100%');
+    $('.w_m').css('width', $('#wrapper').innerWidth() - $('.w_l').outerWidth(true) - $('.w_r').outerWidth(true) - 40);
+    $('.say_txt textarea').css('width', '-=20px');
+});
 $(function(){
     $('#wrapper').css('min-height', $(window).height() + 10);
     $('.w_m').css('width', $('#wrapper').innerWidth() - $('.w_l').outerWidth(true) - $('.w_r').outerWidth(true) - 40);
@@ -50,5 +55,17 @@ $(function(){
             });
         }
         return false;
+    });
+    $('#ask').click(function(){
+        $.get('/askfor?Conan').success(function(data){
+            if (data === '1')
+            {
+                createWnd(200, 80, '申请成功!', '<div style="margin:10px">申请成功！<a href="/down/Conan_Tool.exe" target="_blank">点此下载</a></div>')
+            }
+            else if (data === '2')
+                alert('名额已满了哦！');
+            else
+                alert('申请失败！');
+        });
     });
 });
